@@ -1,17 +1,17 @@
-# TODO Напишите функцию для поиска индекса товара
-def find_index(l, item):
-    for i in l:
-        if i == item:
-            return l.index(i)
-    return None
+# TODO Напишите функцию find_common_participants
 
 
+def find_common_participants(first_group, second_group, splitter=","):
+    first_group_split = set(first_group.split(splitter))
+    second_group_split = set(second_group.split(splitter))
+    res = list(first_group_split.intersection(second_group_split))
+    res.sort()
+    return res
 
-items_list = ['яблоко', 'банан', 'апельсин', 'груша', 'киви', 'банан']
 
-for find_item in ['банан', 'груша', 'персик']:
-    index_item = find_index(items_list, find_item)  # TODO Вызовите функцию, что получить индекс товара
-    if index_item is not None:
-        print(f"Первое вхождение товара '{find_item}' имеет индекс {index_item}.")
-    else:
-        print(f"Товар '{find_item}' не найден в списке.")
+participants_first_group = "Иванов|Петров|Сидоров"
+participants_second_group = "Петров|Сидоров|Смирнов"
+
+# TODO Провеьте работу функции с разделителем отличным от запятой
+
+print(find_common_participants(participants_first_group, participants_second_group, " "))
